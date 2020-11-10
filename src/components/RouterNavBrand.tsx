@@ -1,15 +1,11 @@
-import { Link } from "@reach/router";
+import { Link, LinkProps } from "@reach/router";
 import React from "react";
 
-interface IRouterNavBrandProps {
-  to: string;
-  children?: React.ReactChild | JSX.Element;
-}
+type RouterNavBrandProps = React.PropsWithoutRef<LinkProps<{}>> &
+React.RefAttributes<HTMLAnchorElement>;
 
-const RouterNavBrand = (props: IRouterNavBrandProps) => (
-  <Link to={props.to} className='navbar-brand'>
-    {props.children}
-  </Link>
+const RouterNavBrand = (props: RouterNavBrandProps) => (
+  <Link {...props} className='navbar-brand' />
 );
 
 export default RouterNavBrand;
