@@ -1,9 +1,9 @@
 import { RouteComponentProps } from "@reach/router";
 import React from "react";
-import Viewport from "../containers/Viewport";
+import Viewport from "../components/Viewport";
 
 const About = (props: RouteComponentProps) => (
-    <Viewport>
+    <Viewport pageTitle='About'>
         <h1>About</h1>
     </Viewport>
 );
