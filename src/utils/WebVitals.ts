@@ -1,27 +1,55 @@
 import ReactGA from "react-ga";
 
-interface WebVitalsData {
-  id: unknown;
+interface IWebVitalsData {
+  id: string;
   value: number;
   name: string;
 }
 
-const WebVitals = {
-  withGoogleAnalytics: (gaTrackingID: string) => {
-    ReactGA.initialize(gaTrackingID);
+interface IWebVitalsTracking {
+  initTracker: (...args: any[]) => void;
+  pageView: (path: string, ...args: any[]) => void;
+  performance: (
+    eventCategory: string,
+    ...args: any[]
+  ) => (data: IWebVitalsData) => void;
+}
 
-    const originalGA = ReactGA.ga;
+let trackerRunning = false;
 
-    return function ({ id, value, name }: WebVitalsData) {
-      originalGA("send", "event", {
-        eventCategory: "Web Vitals",
-        eventAction: name,
-        eventValue: Math.round(name === "CLS" ? value * 1000 : value),
-        eventLabel: id,
-        nonInteraction: true,
+const GoogleAnalytics: IWebVitalsTracking = {
+  // args[0] = Google Analytics Tracking ID
+  initTracker: (...args) => {
+    if (!trackerRunning) {
+      ReactGA.initialize(args[0]);
+      trackerRunning = true;
+    }
+  },
+
+  pageView: (path, ...args) => {
+    GoogleAnalytics.initTracker(...args);
+
+    ReactGA.pageview(path);
+  },
+
+  // args[1]: nonInteraction boolean
+  performance: (eventCategory, ...args) => {
+    GoogleAnalytics.initTracker(...args);
+
+    return function (data) {
+      const { name, value, id } = data;
+
+      ReactGA.event({
+        category: eventCategory,
+        action: name,
+        value: Math.round(name === "CLS" ? value * 1000 : value),
+        label: id,
+        nonInteraction: args[1] || false,
       });
     };
   },
 };
+
+const WebVitals = { GoogleAnalytics };
 
 export default WebVitals;
