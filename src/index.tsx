@@ -28,8 +28,4 @@ serviceWorkerRegistration.unregister();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals(console.log);
-/*
-reportWebVitals(() => {
-  return WebVitals.useGoogleAnalytics("UA-XXXXXX-YY");
-});
-*/
+// reportWebVitals(WebVitals.withGoogleAnalytics("UA-XXXXXX-YY"));

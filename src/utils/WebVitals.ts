@@ -7,7 +7,7 @@ interface WebVitalsData {
 }
 
 const WebVitals = {
-  useGoogleAnalytics: (gaTrackingID: string) => {
+  withGoogleAnalytics: (gaTrackingID: string) => {
     ReactGA.initialize(gaTrackingID);
 
     const originalGA = ReactGA.ga;
