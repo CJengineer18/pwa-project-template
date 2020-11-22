@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict": true,
     "target": "es5",
     "rootDir": "src",
@@ -10,11 +10,26 @@
     "skipLibCheck": true,
     "noImplicitAny": false,
     "noUnusedLocals": true,
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "include": ["src/**/*", "index.tsx"],
-  "exclude": ["**/src/__tests__/**", "build"]
+  "include": [
+    "src/**/*",
+    "index.tsx"
+  ],
+  "exclude": [
+    "**/src/__tests__/**",
+    "build"
+  ]
 }
