@@ -74,6 +74,7 @@ registerRoute(
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
+    // tslint:disable-next-line: no-floating-promises
     self.skipWaiting()
   }
 })
