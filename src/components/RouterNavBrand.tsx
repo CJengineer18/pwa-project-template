@@ -1,5 +1,4 @@
 import { Link, LinkProps } from '@reach/router'
-import React from 'react'
 
 type RouterNavBrandProps = React.PropsWithoutRef<LinkProps<{}>> &
   React.RefAttributes<HTMLAnchorElement>

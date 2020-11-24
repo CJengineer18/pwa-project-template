@@ -1,5 +1,4 @@
 import { Link, LinkProps } from '@reach/router'
-import React from 'react'
 import classnames from 'classnames'
 
 type RouterNavLinkProps = React.PropsWithoutRef<LinkProps<{}>> &

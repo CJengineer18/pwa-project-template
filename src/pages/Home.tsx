@@ -1,5 +1,4 @@
 import { RouteComponentProps } from '@reach/router'
-import React from 'react'
 import Viewport from '../components/Viewport'
 
 const Home = (props: RouteComponentProps) => (

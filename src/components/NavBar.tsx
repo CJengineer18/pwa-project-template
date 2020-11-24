@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Collapse, Nav, Navbar, NavbarToggler, NavItem } from 'reactstrap'
 import RouterNavBrand from './RouterNavBrand'
 import RouterNavLink from './RouterNavLink'

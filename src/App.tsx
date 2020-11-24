@@ -1,4 +1,4 @@
-import React /*,  { Suspense } */ from 'react'
+// import  { Suspense } from 'react'
 import { Router } from '@reach/router'
 import Home from './pages/Home'
 import About from './pages/About'
