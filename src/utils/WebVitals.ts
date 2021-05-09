@@ -1,4 +1,4 @@
-import ReactGA from 'react-ga'
+import { initialize, InitializeOptions, pageview, event } from 'react-ga'
 
 interface IWebVitalsData {
   id: string
@@ -7,44 +7,49 @@ interface IWebVitalsData {
 }
 
 interface IWebVitalsTracking {
-  initTracker: (...args: any[]) => void
-  pageView: (path: string, ...args: any[]) => void
+  pageView: (
+    googleTrackingID: string,
+    path: string,
+    options?: InitializeOptions,
+  ) => void
   performance: (
+    googleTrackingID: string,
     eventCategory: string,
-    ...args: any[]
+    nonInteraction?: boolean,
+    options?: InitializeOptions,
   ) => (data: IWebVitalsData) => void
 }
 
-let trackerRunning = false
+const _private = {
+  trackerRunning: false,
 
-const GoogleAnalytics: IWebVitalsTracking = {
-  // args[0] = Google Analytics Tracking ID
-  initTracker: (...args) => {
-    if (!trackerRunning) {
-      ReactGA.initialize(args[0])
-      trackerRunning = true
+  initTracker: (googleTrackingID: string, options?: InitializeOptions) => {
+    if (!_private.trackerRunning) {
+      initialize(googleTrackingID, options)
+      _private.trackerRunning = true
     }
   },
+}
 
-  pageView: (path, ...args) => {
-    GoogleAnalytics.initTracker(...args)
+const GoogleAnalytics: IWebVitalsTracking = {
+  pageView: (googleTrackingID, path, options) => {
+    _private.initTracker(googleTrackingID, options)
 
-    ReactGA.pageview(path)
+    pageview(path)
   },
 
-  // args[1]: nonInteraction boolean
-  performance: (eventCategory, ...args) => {
-    GoogleAnalytics.initTracker(...args)
+  performance: (googleTrackingID, eventCategory, nonInteraction, options) => {
+    _private.initTracker(googleTrackingID, options)
 
     return (data) => {
       const { name, value, id } = data
 
-      ReactGA.event({
+      event({
         category: eventCategory,
         action: name,
         value: Math.round(name === 'CLS' ? value * 1000 : value),
         label: id,
-        nonInteraction: args[1] || false,
+        nonInteraction: nonInteraction || false,
       })
     }
   },

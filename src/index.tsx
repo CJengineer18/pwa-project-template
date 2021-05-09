@@ -32,6 +32,6 @@ reportWebVitals(console.log)
 
 /*
 reportWebVitals(
-  WebVitals.GoogleAnalytics.performance("Web Vitals", "UA-XXXXXX-YY", true)
+  WebVitals.GoogleAnalytics.performance("UA-XXXXXX-YY", "Web Vitals", true)
 );
 */
