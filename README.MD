@@ -1,4 +1,4 @@
-# practice-pwa
+# PWA base project
 Base project for a PWA React web app.
 
 This project was created with **Create React App** with the *cra-pwa-typescript* template.
