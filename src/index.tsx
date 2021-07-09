@@ -4,7 +4,7 @@ import App from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 import 'bootstrap/dist/css/bootstrap.min.css'
-// import WebVitals from "./utils/WebVitals";
+// import GoogleAnalytics from './webvitals/GoogleAnalytics'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -30,8 +30,4 @@ serviceWorkerRegistration.unregister()
 // tslint:disable-next-line:no-console
 reportWebVitals(console.log)
 
-/*
-reportWebVitals(
-  WebVitals.GoogleAnalytics.performance("UA-XXXXXX-YY", "Web Vitals", true)
-);
-*/
+// reportWebVitals(GoogleAnalytics.performance('UA-XXXXXX-YY', 'Web Vitals', true))

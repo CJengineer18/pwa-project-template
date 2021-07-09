@@ -1,24 +1,5 @@
 import { initialize, InitializeOptions, pageview, event } from 'react-ga'
-
-interface IWebVitalsData {
-  id: string
-  value: number
-  name: string
-}
-
-interface IWebVitalsTracking {
-  pageView: (
-    googleTrackingID: string,
-    path: string,
-    options?: InitializeOptions,
-  ) => void
-  performance: (
-    googleTrackingID: string,
-    eventCategory: string,
-    nonInteraction?: boolean,
-    options?: InitializeOptions,
-  ) => (data: IWebVitalsData) => void
-}
+import IWebVitalsTracking from '../interfaces/IWebVitalsTracking'
 
 const _private = {
   trackerRunning: false,
@@ -55,6 +36,4 @@ const GoogleAnalytics: IWebVitalsTracking = {
   },
 }
 
-const WebVitals = { GoogleAnalytics }
-
-export default WebVitals
+export default GoogleAnalytics
