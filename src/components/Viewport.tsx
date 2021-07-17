@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 import NavBar from './NavBar'
 import { Div } from '../styles/Viewport'
 
@@ -9,7 +9,7 @@ interface IViewportProps {
 }
 
 const Viewport = ({ pageTitle, pageSubtitle, children }: IViewportProps) => (
-  <>
+  <HelmetProvider>
     <Helmet>
       <title>{`${pageTitle} | Practice PWA`}</title>
       {pageSubtitle && <meta name="description" content={pageSubtitle} />}
@@ -18,7 +18,7 @@ const Viewport = ({ pageTitle, pageSubtitle, children }: IViewportProps) => (
       <NavBar />
       {children}
     </Div>
-  </>
+  </HelmetProvider>
 )
 
 export default Viewport
