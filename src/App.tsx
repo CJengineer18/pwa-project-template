@@ -8,18 +8,16 @@ import Content from './pages/Content'
 // const About = lazy(() => import('./pages/About'))
 // const Content = lazy(() => import('./pages/Content'))
 
-function App() {
-  return (
-    <div className="App">
-      {/*<Suspense fallback={<div />}>*/}
-      <Router>
-        <Home path="/" />
-        <Content path="/content" />
-        <About path="/about" />
-      </Router>
-      {/*</Suspense>*/}
-    </div>
-  )
-}
+const App = () => (
+  <div className="App">
+    {/*<Suspense fallback={<div />}>*/}
+    <Router>
+      <Home path="/" />
+      <Content path="/content" />
+      <About path="/about" />
+    </Router>
+    {/*</Suspense>*/}
+  </div>
+)
 
 export default App
