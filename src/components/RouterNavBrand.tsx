@@ -1,6 +1,6 @@
-import { Link, LinkProps } from '@reach/router'
+import { Link, LinkProps } from 'react-router-dom'
 
-type RouterNavBrandProps = React.PropsWithoutRef<LinkProps<{}>> &
+type RouterNavBrandProps = React.PropsWithoutRef<LinkProps> &
   React.RefAttributes<HTMLAnchorElement>
 
 const RouterNavBrand = (props: RouterNavBrandProps) => (

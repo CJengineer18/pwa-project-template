@@ -1,22 +1,10 @@
-import { Link, LinkProps } from '@reach/router'
-import classnames from 'classnames'
+import { NavLink, NavLinkProps } from 'react-router-dom'
 
-type RouterNavLinkProps = React.PropsWithoutRef<LinkProps<{}>> &
+type RouterNavLinkProps = React.PropsWithoutRef<NavLinkProps> &
   React.RefAttributes<HTMLAnchorElement>
 
-const RouterNavLink = (props: RouterNavLinkProps) => {
-  const baseStyles: any[] = ['nav-link']
-
-  return (
-    <Link
-      {...props}
-      getProps={({ isCurrent }) => {
-        baseStyles.push({ active: isCurrent })
-
-        return { className: classnames(baseStyles) }
-      }}
-    />
-  )
-}
+const RouterNavLink = (props: RouterNavLinkProps) => (
+  <NavLink className="nav-link" {...props} />
+)
 
 export default RouterNavLink

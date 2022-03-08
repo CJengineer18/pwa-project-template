@@ -1,7 +1,6 @@
-import { RouteComponentProps } from '@reach/router'
 import Viewport from '../components/Viewport'
 
-const Content = (props: RouteComponentProps) => (
+const Content = () => (
   <Viewport pageTitle="Content">
     <h1>Content</h1>
   </Viewport>
