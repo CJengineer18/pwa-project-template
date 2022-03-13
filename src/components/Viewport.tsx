@@ -4,21 +4,21 @@ import NavBar from './NavBar'
 
 interface IViewportProps {
   pageTitle: string
-  pageSubtitle?: string
+  pageDescription?: string
   children?: React.ReactChild | JSX.Element
   navbar?: boolean
 }
 
 const Viewport = ({
   pageTitle,
-  pageSubtitle,
+  pageDescription,
   children,
   navbar,
 }: IViewportProps) => (
   <HelmetProvider>
     <Helmet>
       <title>{`${pageTitle} | Practice PWA`}</title>
-      {pageSubtitle && <meta name="description" content={pageSubtitle} />}
+      {pageDescription && <meta name="description" content={pageDescription} />}
     </Helmet>
     {navbar ? (
       <NavbarContainer>
