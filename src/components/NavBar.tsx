@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Collapse, Nav, Navbar, NavbarToggler, NavItem } from 'reactstrap'
+import Labels from '../constants/Labels'
 import RouterNavBrand from './RouterNavBrand'
 import RouterNavLink from './RouterNavLink'
 
@@ -8,7 +9,7 @@ const NavBar = () => {
 
   return (
     <Navbar fixed="top" color="dark" expand="md" dark>
-      <RouterNavBrand to="/">Test</RouterNavBrand>
+      <RouterNavBrand to="/">{Labels.MAIN_TITLE}</RouterNavBrand>
       <NavbarToggler onClick={() => setOpen(!isOpen)} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>

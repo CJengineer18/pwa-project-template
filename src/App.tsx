@@ -1,23 +1,26 @@
 // import { lazy, Suspense } from 'react'
-import { Router } from '@reach/router'
-import Home from './pages/Home'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import About from './pages/About'
 import Content from './pages/Content'
+import Main from './pages/Main'
+import NotFound from './pages/NotFound'
 
-// const Home = lazy(() => import('./pages/Home'))
 // const About = lazy(() => import('./pages/About'))
 // const Content = lazy(() => import('./pages/Content'))
+// const NotFound = lazy(() => import('./pages/NotFound'))
 
 const App = () => (
-  <div className="App">
-    {/*<Suspense fallback={<div />}>*/}
-    <Router>
-      <Home path="/" />
-      <Content path="/content" />
-      <About path="/about" />
-    </Router>
-    {/*</Suspense>*/}
-  </div>
+  <BrowserRouter>
+    {/* <Suspense fallback={<div />}> */}
+    <Routes>
+      <Route path="/" element={<Main />}>
+        <Route path="content" element={<Content />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+    {/* </Suspense> */}
+  </BrowserRouter>
 )
 
 export default App

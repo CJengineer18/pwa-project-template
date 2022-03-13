@@ -7,8 +7,8 @@ This project was created with **Create React App** with the _cra-pwa-typescript_
 Includes:
 
 - [React Helmet Async](https://github.com/staylor/react-helmet-async 'React Helmet Async'): Meta tags managing.
-- [Reach Router](https://reach.tech/router/ 'Reach Router'): New routing support.
-- [Reactstrap](https://reactstrap.github.io/ 'Reactstrap'): Bootstrap 4's React implementation.
+- [React Router](https://reactrouter.com/ 'React Router'): Routing support.
+- [Reactstrap](https://reactstrap.github.io/ 'Reactstrap'): Bootstrap 5's React implementation.
 - Prettier, tslint, eslint: Code styling.
 - [Classnames](https://github.com/JedWatson/classnames 'Classnames'): Custom classnames managing.
 - [Styled Components](https://styled-components.com/ 'Styled Components'): css-in-js support.
