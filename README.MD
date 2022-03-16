@@ -1,6 +1,6 @@
-# PWA base project
+# PWA Project Template
 
-Base project for a PWA React web app.
+Project template for a PWA React web app.
 
 This project was created with **Create React App** with the _cra-pwa-typescript_ template.
 
@@ -14,6 +14,6 @@ Includes:
 - [Styled Components](https://styled-components.com/ 'Styled Components'): css-in-js support.
 - [React-ga](https://github.com/react-ga/react-ga 'React-ga'): Google Analytics' React implementation.
 
-The app itself only contains 3 pages (Home, Content, About) and a few components. You can use this as a base for creating your own PWA project.
+The app itself only contains 3 pages (Home, Content, About) and a few components. You can use this as a template for creating your own PWA project.
 
 License: MIT
