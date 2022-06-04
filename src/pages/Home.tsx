@@ -1,9 +1,9 @@
-import Viewport from '../components/Viewport'
+import PageContent from '../components/PageContent'
 
 const Home = () => (
-  <Viewport pageTitle="Home">
+  <PageContent pageTitle="Home">
     <h1>Hello world</h1>
-  </Viewport>
+  </PageContent>
 )
 
 export default Home

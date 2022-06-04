@@ -1,9 +1,9 @@
-import Viewport from '../components/Viewport'
+import PageContent from '../components/PageContent'
 
 const About = () => (
-  <Viewport pageTitle="About">
+  <PageContent pageTitle="About">
     <h1>About</h1>
-  </Viewport>
+  </PageContent>
 )
 
 export default About
