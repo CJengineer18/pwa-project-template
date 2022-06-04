@@ -6,11 +6,7 @@ const Main = () => {
   const location = useLocation()
   const currentPath = location.pathname
 
-  return (
-    <Viewport pageTitle="" navbar>
-      {currentPath === '/' ? <Home /> : <Outlet />}
-    </Viewport>
-  )
+  return <Viewport>{currentPath === '/' ? <Home /> : <Outlet />}</Viewport>
 }
 
 export default Main
