@@ -2,7 +2,7 @@ import { NavbarContainer } from '../styles/Viewport'
 import NavBar from './NavBar'
 
 interface IViewportProps {
-  children?: React.ReactChild | JSX.Element
+  children?: React.ReactNode | JSX.Element
 }
 
 const Viewport = ({ children }: IViewportProps) => (

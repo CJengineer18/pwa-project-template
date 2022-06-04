@@ -4,7 +4,7 @@ import { PageContentContainer } from '../styles/PageContent'
 interface IPageContentProps {
   pageTitle: string
   pageDescription?: string
-  children?: React.ReactChild | JSX.Element
+  children?: React.ReactNode | JSX.Element
 }
 
 const PageContent = (props: IPageContentProps) => {
