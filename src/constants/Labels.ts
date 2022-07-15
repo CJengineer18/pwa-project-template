@@ -1,5 +1,5 @@
 const Labels = {
-  MAIN_TITLE: 'Practice PWA',
+  MAIN_PAGE_BRAND: 'Practice PWA',
 }
 
 export default Labels

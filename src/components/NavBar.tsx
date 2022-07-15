@@ -9,7 +9,7 @@ const NavBar = () => {
 
   return (
     <Navbar fixed="top" color="dark" expand="md" dark>
-      <RouterNavBrand to="/">{Labels.MAIN_TITLE}</RouterNavBrand>
+      <RouterNavBrand to="/">{Labels.MAIN_PAGE_BRAND}</RouterNavBrand>
       <NavbarToggler onClick={() => setOpen(!isOpen)} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
