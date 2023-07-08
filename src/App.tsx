@@ -9,7 +9,7 @@ import NotFound from './pages/NotFound'
 // const Content = lazy(() => import('./pages/Content'))
 // const NotFound = lazy(() => import('./pages/NotFound'))
 
-const App = () => (
+const App = (): JSX.Element => (
   <BrowserRouter>
     {/* <Suspense fallback={<div />}> */}
     <Routes>

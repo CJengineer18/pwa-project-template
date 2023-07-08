@@ -1,5 +1,5 @@
-import { initialize, InitializeOptions, pageview, event } from 'react-ga'
-import IWebVitalsTracking from '../interfaces/IWebVitalsTracking'
+import { initialize, type InitializeOptions, pageview, event } from 'react-ga'
+import type IWebVitalsTracking from '../interfaces/IWebVitalsTracking'
 
 const _private = {
   trackerRunning: false,
@@ -9,7 +9,7 @@ const _private = {
       initialize(googleTrackingID, options)
       _private.trackerRunning = true
     }
-  },
+  }
 }
 
 const GoogleAnalytics: IWebVitalsTracking = {
@@ -30,10 +30,10 @@ const GoogleAnalytics: IWebVitalsTracking = {
         action: name,
         value: Math.round(name === 'CLS' ? value * 1000 : value),
         label: id,
-        nonInteraction: nonInteraction || false,
+        nonInteraction: nonInteraction ?? false
       })
     }
-  },
+  }
 }
 
 export default GoogleAnalytics
