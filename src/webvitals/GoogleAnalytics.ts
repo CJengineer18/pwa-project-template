@@ -1,12 +1,16 @@
-import { initialize, type InitializeOptions, pageview, event } from 'react-ga'
-import type IWebVitalsTracking from '../interfaces/IWebVitalsTracking'
+import ReactGA from 'react-ga4'
+import IWebVitalsTracking from '../interfaces/IWebVitalsTracking'
+import IWebVitalsGaInitOptions from '../interfaces/IWebVitalsGaInitOptions'
 
 const _private = {
   trackerRunning: false,
 
-  initTracker: (googleTrackingID: string, options?: InitializeOptions) => {
+  initTracker: (
+    googleTrackingID: string,
+    options?: IWebVitalsGaInitOptions
+  ) => {
     if (!_private.trackerRunning) {
-      initialize(googleTrackingID, options)
+      ReactGA.initialize(googleTrackingID, options)
       _private.trackerRunning = true
     }
   }
@@ -16,7 +20,7 @@ const GoogleAnalytics: IWebVitalsTracking = {
   pageView: (googleTrackingID, path, options) => {
     _private.initTracker(googleTrackingID, options)
 
-    pageview(path)
+    ReactGA.send({ hitType: 'pageview', page: path })
   },
 
   performance: (googleTrackingID, eventCategory, nonInteraction, options) => {
@@ -25,7 +29,7 @@ const GoogleAnalytics: IWebVitalsTracking = {
     return (data) => {
       const { name, value, id } = data
 
-      event({
+      ReactGA.event({
         category: eventCategory,
         action: name,
         value: Math.round(name === 'CLS' ? value * 1000 : value),
