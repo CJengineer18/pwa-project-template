@@ -9,16 +9,16 @@ interface IPageContentProps {
   children?: React.ReactNode | JSX.Element
 }
 
-const PageContent = (props: IPageContentProps) => {
+const PageContent = (props: IPageContentProps): JSX.Element => {
   const { pageTitle, pageDescription, children, withMargin } = props
 
-  const Body = withMargin ? PageContentContainer : 'div'
+  const Body = withMargin ?? false ? PageContentContainer : 'div'
 
   return (
     <HelmetProvider>
       <Helmet>
         <title>{`${pageTitle} | ${Labels.MAIN_PAGE_BRAND}`}</title>
-        {pageDescription && (
+        {pageDescription != null && (
           <meta name="description" content={pageDescription} />
         )}
       </Helmet>

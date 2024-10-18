@@ -1,6 +1,6 @@
 import PageContent from '../components/PageContent'
 
-const About = () => (
+const About = (): JSX.Element => (
   <PageContent pageTitle="About">
     <h1>About</h1>
   </PageContent>

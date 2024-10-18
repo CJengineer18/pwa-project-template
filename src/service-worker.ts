@@ -1,5 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference lib="webworker" />
-/* eslint-disable no-restricted-globals */
 
 // This service worker can be customized!
 // See https://developers.google.com/web/tools/workbox/modules
@@ -27,10 +27,10 @@ precacheAndRoute(self.__WB_MANIFEST)
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
 // https://developers.google.com/web/fundamentals/architecture/app-shell
-const fileExtensionRegexp = new RegExp('/[^/?]+\\.[^/]+$')
+const fileExtensionRegexp = /\/[^/?]+\\.[^/]+$/g
 registerRoute(
   // Return false to exempt requests from being fulfilled by index.html.
-  ({ request, url }: { request: Request; url: URL }) => {
+  ({ request, url }: { request: Request, url: URL }) => {
     // If this isn't a navigation, skip.
     if (request.mode !== 'navigate') {
       return false
@@ -43,14 +43,14 @@ registerRoute(
 
     // If this looks like a URL for a resource, because it contains
     // a file extension, skip.
-    if (url.pathname.match(fileExtensionRegexp)) {
+    if (url.pathname.match(fileExtensionRegexp) != null) {
       return false
     }
 
     // Return true to signal that we want to use the handler.
     return true
   },
-  createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html'),
+  createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
 )
 
 // An example runtime caching route for requests that aren't handled by the
@@ -65,17 +65,16 @@ registerRoute(
     plugins: [
       // Ensure that once this runtime cache reaches a maximum size the
       // least-recently used images are removed.
-      new ExpirationPlugin({ maxEntries: 50 }),
-    ],
-  }),
+      new ExpirationPlugin({ maxEntries: 50 })
+    ]
+  })
 )
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    // tslint:disable-next-line: no-floating-promises
-    self.skipWaiting()
+self.addEventListener('message', (event: ExtendableMessageEvent) => {
+  if (Boolean(event.data) && event.data.type === 'SKIP_WAITING') {
+    void self.skipWaiting()
   }
 })
 

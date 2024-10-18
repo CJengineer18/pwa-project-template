@@ -4,13 +4,17 @@ import Labels from '../constants/Labels'
 import RouterNavBrand from './RouterNavBrand'
 import RouterNavLink from './RouterNavLink'
 
-const NavBar = () => {
+const NavBar = (): JSX.Element => {
   const [isOpen, setOpen] = useState(false)
 
   return (
     <Navbar fixed="top" color="dark" expand="md" dark>
       <RouterNavBrand to="/">{Labels.MAIN_PAGE_BRAND}</RouterNavBrand>
-      <NavbarToggler onClick={() => setOpen(!isOpen)} />
+      <NavbarToggler
+        onClick={() => {
+          setOpen(!isOpen)
+        }}
+      />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="mr-auto" navbar>
           <NavItem>
