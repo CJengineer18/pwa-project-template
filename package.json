@@ -31,20 +31,18 @@
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.13",
-    "@types/node": "^22.7.6",
+    "@types/node": "^22.7.7",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@types/styled-components": "^5.1.34",
-    "@typescript-eslint/eslint-plugin": "^8.10.0",
-    "@typescript-eslint/parser": "^8.10.0",
-    "eslint": "^9.12.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-n": "^17.11.1",
-    "eslint-plugin-promise": "^7.1.0",
-    "eslint-plugin-react": "^7.37.1",
     "prettier": "^3.3.3",
     "react-scripts": "5.0.1",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "@eslint/js": "^9.13.0",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react": "^7.37.1",
+    "globals": "^15.11.0",
+    "typescript-eslint": "^8.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -52,8 +50,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy-local": "npm run build && npx serve -s build",
-    "lint": "eslint -c .eslintrc.js --ext .ts,.tsx src/**/*",
-    "lint-fix": "eslint -c .eslintrc.js --ext .ts,.tsx src/**/* --fix",
+    "lint": "npx eslint",
+    "lint-fix": "npx eslint --fix",
     "prettier": "./node_modules/.bin/prettier -l src/**/*.{ts,tsx}"
   },
   "overrides": {

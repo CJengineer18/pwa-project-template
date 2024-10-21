@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/triple-slash-reference
+ 
 /// <reference lib="webworker" />
 
 // This service worker can be customized!
