@@ -4,6 +4,6 @@ export default interface IWebVitalsGaInitOptions {
   nonce?: string
   testMode?: boolean
   gtagUrl?: string
-  gaOptions?: GaOptions | any
-  gtagOptions?: any
+  gaOptions?: GaOptions | object
+  gtagOptions?: object
 }

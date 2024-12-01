@@ -5,11 +5,11 @@ interface IWebVitalsData {
 }
 
 export default interface IWebVitalsTracking {
-  pageView: (trackingID: string, path: string, options?: any) => void
+  pageView: (trackingID: string, path: string, options?: object) => void
   performance: (
     trackingID: string,
     eventCategory: string,
     nonInteraction?: boolean,
-    options?: any,
+    options?: object,
   ) => (data: IWebVitalsData) => void
 }
