@@ -5,7 +5,7 @@ interface IViewportProps {
   children?: React.ReactNode | JSX.Element
 }
 
-const Viewport = ({ children }: IViewportProps) => (
+const Viewport = ({ children }: IViewportProps): JSX.Element => (
   <NavbarContainer>
     <NavBar />
     {children}

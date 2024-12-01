@@ -1,14 +1,14 @@
-import { ReportHandler } from 'web-vitals'
+import { Metric } from 'web-vitals'
 
-const reportWebVitals = (onPerfEntry?: ReportHandler) => {
-  if (onPerfEntry && onPerfEntry instanceof Function) {
-    // tslint:disable-next-line: no-floating-promises
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS(onPerfEntry)
-      getFID(onPerfEntry)
-      getFCP(onPerfEntry)
-      getLCP(onPerfEntry)
-      getTTFB(onPerfEntry)
+type ReportHandler = (metric: Metric) => void
+
+const reportWebVitals = async (onPerfEntry?: ReportHandler): Promise<void> => {
+  if (onPerfEntry != null) {
+    void import('web-vitals').then(({ onCLS, onFCP, onLCP, onTTFB }) => {
+      onCLS(onPerfEntry)
+      onFCP(onPerfEntry)
+      onLCP(onPerfEntry)
+      onTTFB(onPerfEntry)
     })
   }
 }

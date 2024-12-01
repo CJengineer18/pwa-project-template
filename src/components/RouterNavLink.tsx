@@ -1,9 +1,9 @@
-import { NavLink, NavLinkProps } from 'react-router-dom'
+import { NavLink, type NavLinkProps } from 'react-router-dom'
 
 type RouterNavLinkProps = React.PropsWithoutRef<NavLinkProps> &
-  React.RefAttributes<HTMLAnchorElement>
+React.RefAttributes<HTMLAnchorElement>
 
-const RouterNavLink = (props: RouterNavLinkProps) => (
+const RouterNavLink = (props: RouterNavLinkProps): JSX.Element => (
   <NavLink className="nav-link" {...props} />
 )
 
