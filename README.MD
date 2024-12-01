@@ -2,7 +2,7 @@
 
 Project template for a PWA React web app.
 
-This project was created with **Create React App** with the _cra-pwa-typescript_ template.
+This project was created with **Create React App** with the _cra-pwa-typescript_ template. Requires Node.js 20 LTS or later.
 
 Includes:
 
